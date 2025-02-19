@@ -1,0 +1,25 @@
+PROBLEM STATEMENT:
+
+The re.sub() tool (sub stands for substitution) evaluates a pattern and, for each valid match, it calls a method (or lambda).
+The method is called for all matches and can be used to modify strings in different ways. The re.sub() method returns the modified string as an output.
+Task:
+You are given a text of N lines. The text contains && and || symbols.
+Your task is to modify those symbols to the following:
+&& → and
+|| → or
+Both && and || should have a space ” ” on both sides.
+
+Input format:
+The first line contains the integer, N.
+The next N lines each contain a line of the text.
+
+Constraints:
+0 < N < 100
+Neither && nor || occur in the start or end of each line.
+
+SOLUTION:
+
+import re
+for i in range(int(input())):
+    s = re.sub("(?<=\s)&&(?=\s)", "and", input())
+    print(re.sub("(?<=\s)\|\|(?=\s)", "or", s))
