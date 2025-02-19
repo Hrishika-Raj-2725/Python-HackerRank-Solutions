@@ -1,0 +1,43 @@
+PROBLEM STATEMENT:
+
+Given a list of rational numbers, find their product.
+Concept:
+The reduce() function applies a function of two arguments cumulatively on a list of objects in succession from left to right to reduce it to one value. Say you have a list, say [1,2,3] and you have to find its sum.
+>>>reduce(lambda x, y : x + y,[1,2,3])
+6
+You can also define an initial value. If it is specified, the function will assume the initial value as the value given, and then reduce. It is equivalent to adding the initial value at the beginning of the list. For example:
+>>>reduce(lambda x, y : x + y, [1,2,3], -3)
+3
+>>>from fractions import gcd
+>>>reduce(gcd, [2,4,8], 3)
+1
+
+Input format:
+The first line contains n, the number of rational numbers.
+The ith of the next n lines contains two integers each, the numerator( Ni ) and denominator( Di ) of the ith rational number in the list.
+
+Constraints:
+1 <= n <= 100
+1 <= Ni, Di <= 10^9
+
+Output format:
+Print only one line containing the numerator and denominator of the product of the numbers in the list in its simplest form, i.e. numerator and denominator have no common divisor other than 1.
+
+SOLUTION:
+
+from fractions import Fraction
+from functools import reduce
+def product(fracs):
+    total = []
+    for frac in fracs:
+        t = Fraction(frac.numerator, frac.denominator)
+        total.append(t)
+    res = reduce(lambda x,y : x*y, total)
+    return res.numerator, res.denominator
+    return t.numerator, t.denominator
+if __name__ == '__main__':
+    fracs = []
+    for _ in range(int(input())):
+        fracs.append(Fraction(*map(int, input().split())))
+    result = product(fracs)
+    print(*result)
