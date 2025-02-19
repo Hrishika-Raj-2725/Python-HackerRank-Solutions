@@ -1,0 +1,21 @@
+PROBLEM STATEMENT:
+
+In this task, we would like for you to appreciate the usefulness of the groupby() function of itertools. You are given a string  S. Suppose a character C occurs consecutively X times in the string. Replace these consecutive occurrences of the character C with (X, C) in the string.
+For a better understanding of the problem, check the explanation.
+
+Input Format:
+A single line of input consisting of the string S.
+
+Output Format:
+A single line of output consisting of the modified string.
+
+Constraints:
+All the characters of S denotes integers between 0  and 9.
+1 <= | S | <= 10^4
+
+SOLUTION:
+
+from itertools import groupby
+if __name__ == "__main__":
+    for k, c in groupby(input()):
+        print("(%d, %d)" % (len(list(c)), int(k)), end=' ')
