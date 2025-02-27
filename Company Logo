@@ -9,7 +9,7 @@ Input Format:
 A single line of input containing the string S.
 
 Constraints:
-3 < len(S) <104
+3 < len(S) < 104
 S has at least 3 distinct characters
 
 Output Format:
